@@ -2,7 +2,7 @@
 
 build:
 	if [ -d ".dbdata" ]; then sudo chmod -R 755 .dbdata; fi
-	docker build -t bancho:latest .
+	docker build --network=host -t bancho:latest .
 
 run:
 	docker compose up bancho mysql redis
