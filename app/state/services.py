@@ -269,11 +269,6 @@ async def log_strange_occurrence(obj: object) -> None:
             "Logged strange occurrence to" + "/".join(log_file.parts[-4:]),
             Ansi.LYELLOW,
         )
-        log(
-            "It would be greatly appreciated if you could forward this to the "
-            "bancho.py development team. To do so, please email josh@akatsuki.gg",
-            Ansi.LYELLOW,
-        )
 
 
 # dependency management
@@ -473,9 +468,7 @@ async def run_sql_migrations() -> None:
             log(f"Failed: {query}", Ansi.GRAY)
             log(repr(exc))
             log(
-                "SQL failed to update - unless you've been "
-                "modifying sql and know what caused this, "
-                "please contact @cmyui on Discord.",
+                "SQL failed to update.",
                 Ansi.LRED,
             )
             raise KeyboardInterrupt from exc
