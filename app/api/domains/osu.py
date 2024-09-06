@@ -598,6 +598,10 @@ async def osuSubmitModularSelector(
     # attach bmap & player
     score.bmap = bmap
     score.player = player
+    
+    if not score.passed and app.settings.IGNORE_FAILED:
+        log(f"{score.player} submitted a failed score (ignoring).", Ansi.LYELLOW)
+        return Response(b"error: no")
 
     ## perform checksum validation
 
